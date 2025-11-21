@@ -1,5 +1,6 @@
 const navButtons = document.querySelectorAll(".nav-item");
 const pages = document.querySelectorAll(".content-page");
+const bottomNav = document.querySelector(".bottom-nav");
 const heroSection = document.querySelector(".hero");
 const trackButtons = document.querySelectorAll(".track-card");
 const playerOverlay = document.querySelector(".player-overlay");
@@ -42,6 +43,9 @@ function closePlayerOverlay() {
   if (lyricsBody) {
     lyricsBody.hidden = true;
   }
+  if (bottomNav) {
+    bottomNav.classList.remove("is-hidden");
+  }
 }
 
 function openPlayerOverlay(trackButton) {
@@ -76,6 +80,10 @@ function openPlayerOverlay(trackButton) {
   playerOverlay.hidden = false;
   playerOverlay.classList.add("is-visible");
   playerOverlay.scrollTop = 0;
+
+  if (bottomNav) {
+    bottomNav.classList.add("is-hidden");
+  }
 }
 
 function activatePage(target) {
